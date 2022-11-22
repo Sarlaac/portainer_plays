@@ -1,0 +1,15 @@
+---
+version: "2.1"
+services:
+  mc:
+    image: itzg/minecraft-server
+    container_name: minecraft
+    environment:
+      - TYPE=PAPER
+      - EULA=true
+      - MEMORY=6G
+    volumes:
+      - /home/docker/minecraft:/data
+    ports:
+      - 25565:25565
+    restart: unless-stopped
