@@ -15,4 +15,5 @@ services:
 
 networks:
   reverse_proxy:
-    external: true
+    name: reverse_proxy
+    driver: bridge
