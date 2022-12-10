@@ -10,7 +10,12 @@ services:
       - TZ=America/Regina
     volumes:
       - /home/docker/heimdall/config:/config
-    ports:
-      - 8080:80
-      - 8443:443
+#    ports:
+#      - 8080:80
     restart: unless-stopped
+    networks:
+      - reverse_proxy
+
+networks:
+  reverse_proxy:
+    external: true
