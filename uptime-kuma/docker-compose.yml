@@ -5,7 +5,7 @@ services:
 #   ports:
 #     - '3001:3001'
     volumes:
-      - '/home/docker/uptime-kuma/data:/app/data'
+      - 'uptime-kuma:/app/data'
     container_name: uptime-kuma
     image: 'louislam/uptime-kuma:1'
     networks:
@@ -14,3 +14,6 @@ services:
 networks:
   reverse_proxy:
     external: true
+
+volumes:
+  uptime-kuma:
