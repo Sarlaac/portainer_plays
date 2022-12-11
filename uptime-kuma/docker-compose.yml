@@ -6,6 +6,7 @@ services:
 #     - '3001:3001'
     volumes:
       - '/home/docker/uptime-kuma/data:/app/data'
+      - '/var/run/docker.sock:/var/run/docker.sock'
     container_name: uptime-kuma
     image: 'louislam/uptime-kuma:1'
     networks:
