@@ -1,0 +1,17 @@
+---
+services:
+  lab-routes:
+    image: tailscale/tailscale:latest
+    hostname: lab
+    environment:
+      - TS_AUTHKEY=${MACHINE_AUTHKEY}
+      - TS_STATE_DIR=/var/lib/tailscale
+      - TS_USERSPACE=false
+      - TS_ROUTES=10.88.88.0/24
+    volumes:
+      - /home/docker/tailscale-proxy/state:/var/lib/tailscale
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+      - sys_module
+    restart: unless-stopped
